@@ -7,10 +7,10 @@ import { EcosystemMap } from './EcosystemMap';
 import { PresentationModal } from '@/components/modals/PresentationModal';
 
 const bullets = [
-  'Integração de dados e rotinas',
-  'Padronização por rede e unidade',
-  'Indicadores para acompanhamento',
-  'Segurança e governança',
+  'Uma fonte única de verdade da rede',
+  'Alertas e priorização por risco',
+  'Painéis por escola, turma e aluno',
+  'Auditoria, segurança e LGPD',
 ];
 
 export const HeroSection = () => {
@@ -32,7 +32,7 @@ export const HeroSection = () => {
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
               Da escola à gestão:{' '}
-              <span className="gradient-text">Da escola à gestão: rotinas organizadas, gestão com visão</span>
+              <span className="gradient-text">rotinas organizadas, gestão com visão</span>
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
