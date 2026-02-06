@@ -31,8 +31,8 @@ export const HeroSection = () => {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
-              Do operacional ao estratégico —{' '}
-              <span className="gradient-text">em uma só plataforma.</span>
+              Da escola à gestão:{' '}
+              <span className="gradient-text">automação que libera tempo e fortalece a decisão.</span>
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
