@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bus, Utensils, ClipboardList, BookOpen, School, Users, GraduationCap } from 'lucide-react';
+import siducIcon from '@/assets/siduc-icon.png';
 
 const center = { x: 270, y: 220 };
 
@@ -40,18 +41,22 @@ export const EcosystemMap = () => {
         ))}
       </svg>
 
-      {/* Center Node */}
+      {/* Center Node — SIDUC Logo */}
       <div
-        className="absolute gradient-primary rounded-2xl flex items-center justify-center pulse-glow z-10"
+        className="absolute gradient-primary rounded-2xl flex items-center justify-center pulse-glow z-10 p-3"
         style={{
-          width: '90px',
-          height: '90px',
+          width: '96px',
+          height: '96px',
           left: `${(center.x / 540) * 100}%`,
           top: `${(center.y / 440) * 100}%`,
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <span className="text-primary-foreground font-bold text-base tracking-wide">SIDUC</span>
+        <img
+          src={siducIcon}
+          alt="SIDUC"
+          className="w-full h-full object-contain brightness-0 invert"
+        />
       </div>
 
       {/* Peripheral Nodes */}
@@ -73,16 +78,16 @@ export const EcosystemMap = () => {
             onMouseLeave={() => setActiveNode(null)}
           >
             <div
-              className={`flex flex-col items-center gap-1 p-2.5 sm:p-3 rounded-xl bg-card border transition-all duration-200 ${
+              className={`flex flex-col items-center gap-1.5 p-3 sm:p-3.5 rounded-xl bg-card border transition-all duration-200 ${
                 activeNode === node.id
                   ? 'shadow-lg border-accent/40 scale-110'
                   : 'shadow-sm border-border/50 hover:shadow-md'
               }`}
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted flex items-center justify-center">
-                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-muted flex items-center justify-center">
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
-              <span className="text-[10px] sm:text-[11px] font-medium text-foreground whitespace-nowrap">
+              <span className="text-[11px] sm:text-xs font-semibold text-foreground whitespace-nowrap">
                 {node.label}
               </span>
             </div>
