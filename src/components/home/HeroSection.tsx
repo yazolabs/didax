@@ -27,12 +27,12 @@ export const HeroSection = () => {
           >
             <div className="section-badge mb-6">
               <span className="w-1.5 h-1.5 rounded-full gradient-primary" />
-              Plataforma de gestão educacional
+              Gestão educacional inteligente
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
-              Tecnologia que organiza o ecossistema educacional —{' '}
-              <span className="gradient-text">do operacional ao estratégico.</span>
+              Do operacional ao estratégico —{' '}
+              <span className="gradient-text">em uma só plataforma.</span>
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
