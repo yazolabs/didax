@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LayoutGrid, Plug, BarChart3, Rocket, Compass, ArrowRight } from 'lucide-react';
+import { Plug, BarChart3, Rocket, Compass, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import siducIcon from '@/assets/siduc-icon.png';
 
 const solutions = [
   {
     id: 'siduc',
     title: 'SIDUC',
-    desc: 'Sistema integrado para gestão do ecossistema educacional. Transporte, escolas, alunos, professores, merenda e mais — conectados.',
-    icon: LayoutGrid,
+    desc: 'Sistema integrado para gestão do ecossistema educacional. Transporte, escolas, alunos, servidores, merenda e mais — conectados.',
+    icon: null as any,
     featured: true,
+    useLogo: true,
   },
   {
     id: 'integracoes',
@@ -57,6 +59,7 @@ export const SolutionsSection = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {solutions.map((s, i) => {
           const Icon = s.icon;
+          const isLogo = 'useLogo' in s && s.useLogo;
           return (
             <motion.div
               key={s.id}
@@ -74,7 +77,11 @@ export const SolutionsSection = () => (
                     s.featured ? 'gradient-primary' : 'bg-muted'
                   }`}
                 >
-                  <Icon className={`w-6 h-6 ${s.featured ? 'text-primary-foreground' : 'text-primary'}`} />
+                  {isLogo ? (
+                    <img src={siducIcon} alt="SIDUC" className="w-7 h-7 brightness-0 invert" />
+                  ) : (
+                    <Icon className={`w-6 h-6 ${s.featured ? 'text-primary-foreground' : 'text-primary'}`} />
+                  )}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">

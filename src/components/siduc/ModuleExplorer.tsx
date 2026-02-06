@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Bus, School, Users, GraduationCap, Utensils, ClipboardList,
-  BookOpen, BarChart3, UserCog, FileText, Plug, Search, X,
+  Bus, School, Users, Utensils, ClipboardList,
+  BookOpen, BarChart3, FileText, Search, CreditCard, DatabaseZap, BookMarked,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -15,17 +15,17 @@ const categories = [
 ];
 
 const modules = [
-  { id: 'transporte', category: 'operacao', title: 'Transporte Escolar', icon: Bus, shortDesc: 'Gestão de rotas, veículos e alunos transportados.', details: 'Cadastro de rotas, pontos de parada, veículos e motoristas. Vinculação de alunos, controle de capacidade e monitoramento de uso.', benefits: ['Redução de custos operacionais', 'Rastreabilidade por aluno', 'Relatórios de uso e cobertura'] },
+  { id: 'transporte', category: 'operacao', title: 'Transporte', icon: Bus, shortDesc: 'Gestão de rotas, veículos e alunos transportados.', details: 'Cadastro de rotas, pontos de parada, veículos e motoristas. Vinculação de alunos, controle de capacidade e monitoramento de uso.', benefits: ['Redução de custos operacionais', 'Rastreabilidade por aluno', 'Relatórios de uso e cobertura'] },
   { id: 'escolas', category: 'gestao', title: 'Escolas', icon: School, shortDesc: 'Cadastro e gestão centralizada das unidades.', details: 'Cadastro de unidades com dados físicos, administrativos e pedagógicos. Gestão por distrito e rede.', benefits: ['Visão consolidada da rede', 'Dados atualizados por unidade', 'Gestão por distrito'] },
   { id: 'alunos', category: 'academico', title: 'Alunos', icon: Users, shortDesc: 'Base unificada com histórico completo.', details: 'Cadastro centralizado de alunos com dados pessoais, responsáveis, histórico escolar e vínculos.', benefits: ['Eliminação de duplicidades', 'Histórico completo', 'Busca rápida e filtros'] },
-  { id: 'professores', category: 'academico', title: 'Professores', icon: GraduationCap, shortDesc: 'Docentes, vínculos e alocações.', details: 'Gestão de docentes com dados profissionais, vínculos por escola e disciplina, e controle de carga horária.', benefits: ['Controle de vínculos', 'Alocação por disciplina', 'Relatórios de distribuição'] },
+  { id: 'servidores', category: 'gestao', title: 'Servidores', icon: CreditCard, shortDesc: 'Gestão de servidores da rede educacional.', details: 'Cadastro de servidores com dados funcionais, vínculos por escola e função, controle de lotação e movimentação.', benefits: ['Controle de vínculos', 'Gestão de lotação', 'Relatórios de distribuição'] },
   { id: 'merenda', category: 'operacao', title: 'Merenda', icon: Utensils, shortDesc: 'Cardápios, insumos e distribuição.', details: 'Planejamento de cardápios, controle de estoque e distribuição por escola. Registro de consumo e relatórios.', benefits: ['Padronização de cardápios', 'Controle de estoque', 'Relatórios nutricionais'] },
-  { id: 'matricula', category: 'academico', title: 'Pré-matrícula / Matrícula', icon: ClipboardList, shortDesc: 'Pré-matrícula online com validação.', details: 'Processo de pré-matrícula digital com validação de documentos, alocação por critérios e acompanhamento de vagas.', benefits: ['Redução de filas', 'Alocação automática', 'Transparência no processo'] },
-  { id: 'diario', category: 'academico', title: 'Diário do Aluno', icon: BookOpen, shortDesc: 'Frequência, notas e ocorrências.', details: 'Registro digital de frequência, notas, ocorrências e observações pedagógicas por turma e aluno.', benefits: ['Eliminação de diários em papel', 'Dados em tempo real', 'Histórico pedagógico'] },
-  { id: 'relatorios', category: 'gestao', title: 'Relatórios & Indicadores', icon: BarChart3, shortDesc: 'Painéis e relatórios para gestão.', details: 'Dashboards interativos e relatórios configuráveis com indicadores de desempenho, uso e cobertura.', benefits: ['Visão em tempo real', 'Relatórios exportáveis', 'Indicadores personalizáveis'] },
-  { id: 'usuarios', category: 'gestao', title: 'Usuários e Permissões', icon: UserCog, shortDesc: 'Perfis de acesso granulares.', details: 'Gestão de usuários com perfis de acesso por módulo, escola e função. Controle centralizado pela secretaria.', benefits: ['Segurança por design', 'Perfis configuráveis', 'Auditoria de acessos'] },
+  { id: 'pre-matricula', category: 'academico', title: 'Pré-matrícula', icon: ClipboardList, shortDesc: 'Pré-matrícula online com validação.', details: 'Processo de pré-matrícula digital com validação de documentos, alocação por critérios e acompanhamento de vagas.', benefits: ['Redução de filas', 'Alocação automática', 'Transparência no processo'] },
+  { id: 'educasenso', category: 'gestao', title: 'EducaSenso', icon: DatabaseZap, shortDesc: 'Integração e preparação de dados para o Censo Escolar.', details: 'Exportação e validação de dados para o Censo Escolar (INEP). Verificação de consistência e correção de divergências antes do envio.', benefits: ['Conformidade com o INEP', 'Validação automática de dados', 'Redução de erros no envio'] },
+  { id: 'diario-classe', category: 'academico', title: 'Diário de Classe', icon: BookOpen, shortDesc: 'Frequência, notas e registros por turma.', details: 'Registro digital de frequência, notas, conteúdos ministrados e observações pedagógicas por turma e disciplina.', benefits: ['Eliminação de diários em papel', 'Dados em tempo real', 'Histórico pedagógico'] },
+  { id: 'relatorios', category: 'gestao', title: 'Relatórios e Indicadores', icon: BarChart3, shortDesc: 'Painéis e relatórios para gestão.', details: 'Dashboards interativos e relatórios configuráveis com indicadores de desempenho, uso e cobertura.', benefits: ['Visão em tempo real', 'Relatórios exportáveis', 'Indicadores personalizáveis'] },
   { id: 'auditoria', category: 'gestao', title: 'Auditoria', icon: FileText, shortDesc: 'Rastreabilidade de ações no sistema.', details: 'Registro automático de todas as operações sensíveis com identificação de usuário, data e hora.', benefits: ['Conformidade e governança', 'Rastreabilidade completa', 'Relatórios de auditoria'] },
-  { id: 'integracoes', category: 'gestao', title: 'Integrações & Importações', icon: Plug, shortDesc: 'Conexão com sistemas e bases de dados.', details: 'Importação de dados existentes e integração com sistemas externos via APIs e arquivos padronizados.', benefits: ['Migração assistida', 'Integração com sistemas legados', 'Padrões abertos'] },
+  { id: 'caderneta', category: 'academico', title: 'Caderneta Eletrônica', icon: BookMarked, shortDesc: 'Acompanhamento individual do aluno.', details: 'Caderneta digital com registro de desempenho, frequência, observações e comunicação com responsáveis por aluno.', benefits: ['Acompanhamento individualizado', 'Comunicação com famílias', 'Registro contínuo'] },
 ];
 
 export const ModuleExplorer = () => {
