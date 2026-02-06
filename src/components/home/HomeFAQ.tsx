@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const faqs = [
-  { id: 'rede', q: 'A EEDU atende rede municipal e privada?', a: 'Nosso foco principal são redes públicas municipais, mas a plataforma pode ser adaptada para outros contextos educacionais conforme a demanda.' },
   { id: 'implantacao', q: 'Vocês fazem implantação e capacitação?', a: 'Sim. A implantação é acompanhada por nossa equipe, incluindo configuração, migração de dados e capacitação dos usuários. O processo é gradual e estruturado.' },
   { id: 'integracao', q: 'É possível integrar com sistemas existentes?', a: 'Sim. Trabalhamos com integrações e importações de dados de sistemas já utilizados pela rede, garantindo continuidade e aproveitamento de informações.' },
   { id: 'acesso', q: 'Como funciona o controle de acesso?', a: 'O sistema permite a criação de perfis com permissões específicas por módulo, unidade e função, garantindo que cada usuário acesse apenas o que é pertinente ao seu papel.' },

@@ -32,12 +32,11 @@ export const HeroSection = () => {
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
               Da escola à gestão:{' '}
-              <span className="gradient-text">automação que libera tempo e fortalece a decisão.</span>
+              <span className="gradient-text">Da escola à gestão: rotinas organizadas, gestão com visão</span>
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A EEDU desenvolve soluções para integrar rotinas, dados e processos da educação,
-              trazendo controle, rastreabilidade e visão para quem gere a rede.
+              A EEDU conecta pessoas e dados para simplificar a operação e ampliar a visão estratégica, com dashboards e alertas que ajudam a agir antes que o problema cresça.
             </p>
 
             <ul className="mt-6 space-y-3">
