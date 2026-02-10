@@ -36,7 +36,7 @@ export const HeroSection = () => {
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A EEDU conecta pessoas e dados para simplificar a operação e ampliar a visão estratégica, com dashboards e alertas que ajudam a agir antes que o problema cresça.
+              A DIDAX conecta pessoas e dados para simplificar a operação e ampliar a visão estratégica, com dashboards e alertas que ajudam a agir antes que o problema cresça.
             </p>
 
             <ul className="mt-6 space-y-3">
