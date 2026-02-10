@@ -25,7 +25,7 @@ export const SiducHero = () => {
     >
       <div className="absolute inset-0 bg-background/40" />
       <div className="relative section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,9 +66,6 @@ export const SiducHero = () => {
               </Button>
             </div>
           </motion.div>
-
-          {/* Background image fills section, no right column needed */}
-          <div />
         </div>
       </div>
       <DemoModal open={modalOpen} onOpenChange={setModalOpen} />

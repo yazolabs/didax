@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { EcosystemMap } from './EcosystemMap';
+
 import { PresentationModal } from '@/components/modals/PresentationModal';
 import heroBg from '@/assets/didax-hero-bg.png';
 
@@ -21,7 +21,7 @@ export const HeroSection = () => {
     <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }}>
       <div className="absolute inset-0 bg-background/40" />
       <div className="section-container">
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="relative z-10 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,8 +64,6 @@ export const HeroSection = () => {
               </Button>
             </div>
           </motion.div>
-
-          <div />
         </div>
       </div>
 
