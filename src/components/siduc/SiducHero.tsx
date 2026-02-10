@@ -23,7 +23,7 @@ export const SiducHero = () => {
       className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
-      <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-background/40" />
       <div className="relative section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
