@@ -50,7 +50,7 @@ export const SolutionsSection = () => (
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <span className="section-badge mb-4">Soluções</span>
-        <h2 className="text-2xl sm:text-3xl font-bold mt-4">Como a EEDU atua</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mt-4">Como a DIDAX atua</h2>
         <p className="text-muted-foreground mt-3">
           Soluções complementares para diferentes estágios de maturidade da gestão.
         </p>
