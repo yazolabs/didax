@@ -10,9 +10,6 @@ services:
       DB_PASS: fefc8bb7b287454c1493812882b7569f
       DB_NAME: didax
       CORS_ORIGIN: https://didax.yazolabs.com.br
-    expose:
-      - "3001"
-
   frontend:
     build:
       context: ./frontend
