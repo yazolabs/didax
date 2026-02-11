@@ -1,20 +1,15 @@
 services:
   mysql:
-    image: mysql:8.4
-    environment:
-      MYSQL_DATABASE: didax
-      MYSQL_USER: didax
-      MYSQL_PASSWORD: didax_pass
-      MYSQL_ROOT_PASSWORD: root_pass
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - ./docker/mysql-init:/docker-entrypoint-initdb.d
-    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
-      timeout: 3s
-      retries: 30
+  environment:
+    MYSQL_DATABASE: didax_db
+    MYSQL_USER: didax
+    MYSQL_PASSWORD: didax_pass
+    MYSQL_ROOT_PASSWORD: root_pass
+
+backend:
+  environment:
+    DB_NAME: didax_db
+
 
   backend:
     build:
