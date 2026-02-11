@@ -11,7 +11,7 @@ services:
       DB_USER: yazolabs
       DB_PASS: fefc8bb7b287454c1493812882b7569f
       DB_NAME: didax
-      CORS_ORIGIN: https://didax.seudominio.com
+      CORS_ORIGIN: https://didax.yazolabs.com
     expose:
       - "3001"
 
@@ -20,7 +20,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.prod
       args:
-        VITE_API_URL: https://api.didax.seudominio.com
+        VITE_API_URL: https://api.didax.yazolabs.com
     depends_on:
       - backend
     expose:
