@@ -1,25 +1,32 @@
 services:
   mysql:
-  environment:
-    MYSQL_DATABASE: didax_db
-    MYSQL_USER: didax
-    MYSQL_PASSWORD: didax_pass
-    MYSQL_ROOT_PASSWORD: root_pass
-
-backend:
-  environment:
-    DB_NAME: didax_db
-
+    image: mysql:8.4
+    restart: always
+    environment:
+      MYSQL_DATABASE: didax_db
+      MYSQL_USER: didax
+      MYSQL_PASSWORD: didax_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql-init:/docker-entrypoint-initdb.d:ro
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
+    restart: always
     environment:
       NODE_ENV: production
       DB_HOST: mysql
       DB_PORT: "3306"
-      DB_NAME: didax
+      DB_NAME: didax_db
       DB_USER: didax
       DB_PASS: didax_pass
       CORS_ORIGIN: https://didax.yazolabs.com.br
@@ -33,6 +40,7 @@ backend:
       dockerfile: Dockerfile.prod
       args:
         VITE_API_URL: https://api.didax.yazolabs.com.br
+    restart: always
     depends_on:
       - backend
 
